@@ -29,7 +29,7 @@ mkdir -p ~/.titanedge0
 
 # Bước 10: Chạy container 0 với tùy chọn --name để đặt tên là titan0 và mount thư mục ~/.titanedge0 vào /root/.titanedge
 docker run -dit --name titan0 -v ~/.titanedge0:/root/.titanedge nezha123/titan-edge
-
+sleep 10
 # Thực hiện hành động cho container 0
 docker exec -it titan0 /bin/bash -c 'titan-edge bind --hash=6E0A51D9-CE34-4D21-9445-C6D1D24B8523 https://api-test1.container1.titannet.io/api/v2/device/binding'
 
