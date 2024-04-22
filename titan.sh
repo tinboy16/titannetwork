@@ -1,5 +1,30 @@
 #!/bin/bash
+# Kiểm tra xem Docker đã được cài đặt hay chưa
+if ! command -v docker &> /dev/null; then
+    # Nếu không, cài đặt Docker
+    echo "Docker is not installed. Installing Docker..."
+
+    # Sử dụng lệnh cài đặt Docker cho hệ điều hành cụ thể, ví dụ:
+    # Ubuntu/Debian
+    sudo apt-get update
+    sudo apt-get install -y docker.io
+
+    # CentOS/RHEL
+    # sudo yum install -y docker
+
+    # Fedora
+    # sudo dnf install -y docker
+
+    # Khởi động dịch vụ Docker
+    sudo systemctl start docker
+
+    # Tự động khởi động Docker khi khởi động hệ thống
+    sudo systemctl enable docker
+
+    echo "Docker installed successfully."
+fi
 # Bước 1: Tạo thư mục ~/.titanedge1 nếu chưa tồn tại
+
 mkdir -p ~/.titanedge1
 
 # Bước 2: Chạy container 1 và cấu hình tự động khởi động lại
