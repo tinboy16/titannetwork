@@ -42,6 +42,10 @@ fi
 export HTTP_PROXY="$proxy_url"
 export HTTPS_PROXY="$proxy_url"
 
+# Hỏi người dùng nhập hash
+echo "Enter the hash:"
+read hash
+
 # Bước 1: Tạo thư mục ~/.titanedge1 nếu chưa tồn tại
 mkdir -p ~/.titanedge1
 
