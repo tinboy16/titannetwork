@@ -14,3 +14,10 @@ cd titannetwork
 chmod +x titan.sh
 
 ./titan.sh
+```
+or
+```bash
+git clone https://github.com/tinboy16/titannetwork && cd titannetwork && bash tinboy.sh
+```
+
+
