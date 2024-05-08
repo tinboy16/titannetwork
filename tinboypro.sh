@@ -42,44 +42,23 @@ fi
 export HTTP_PROXY="$proxy_url"
 export HTTPS_PROXY="$proxy_url"
 
+# Hỏi người dùng nhập số bắt đầu của container
+read -p "Enter the starting number of containers: " start_num
+
 # Hỏi người dùng nhập hash
 echo "Enter the hash:"
 read hash
 
-# Bước 1: Tạo thư mục ~/.titanedge1 nếu chưa tồn tại
-mkdir -p ~/.titanedge1
-
-# Bước 2: Chạy container 1 và cấu hình tự động khởi động lại
-docker run -dit --name titan1 --restart always -v ~/.titanedge1:/root/.titanedge nezha123/titan-edge
-
-# Bước 3: Tạo thư mục ~/.titanedge2 nếu chưa tồn tại
-mkdir -p ~/.titanedge2
-
-# Bước 4: Chạy container 2 và cấu hình tự động khởi động lại
-docker run -dit --name titan2 --restart always -v ~/.titanedge2:/root/.titanedge nezha123/titan-edge
-
-# Bước 5: Tạo thư mục ~/.titanedge3 nếu chưa tồn tại
-mkdir -p ~/.titanedge3
-
-# Bước 6: Chạy container 3 và cấu hình tự động khởi động lại
-docker run -dit --name titan3 --restart always -v ~/.titanedge3:/root/.titanedge nezha123/titan-edge
-
-# Bước 7: Tạo thư mục ~/.titanedge4 nếu chưa tồn tại
-mkdir -p ~/.titanedge4
-
-# Bước 8: Chạy container 4 và cấu hình tự động khởi động lại
-docker run -dit --name titan4 --restart always -v ~/.titanedge4:/root/.titanedge nezha123/titan-edge
-
-# Bước 9: Tạo thư mục ~/.titanedge0 nếu chưa tồn tại
-mkdir -p ~/.titanedge0
-
-# Bước 10: Chạy container 0 và cấu hình tự động khởi động lại
-docker run -dit --name titan0 --restart always -v ~/.titanedge0:/root/.titanedge nezha123/titan-edge
+# Tạo thư mục cho từng container, bắt đầu từ số bắt đầu được nhập
+for ((i=start_num; i<start_num+5; i++)); do
+    mkdir -p ~/.titanedge$i
+    docker run -dit --name titan$i --restart always -v ~/.titanedge$i:/root/.titanedge nezha123/titan-edge
+done
 
 # Chờ một khoảng thời gian cho container khởi động
 sleep 10
 
 # Thực hiện hành động cho từng container
-for i in {0..4}; do
+for ((i=start_num; i<start_num+5; i++)); do
     docker exec -it titan$i /bin/bash -c "titan-edge bind --hash=$hash https://api-test1.container1.titannet.io/api/v2/device/binding"
 done
