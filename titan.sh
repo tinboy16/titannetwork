@@ -58,8 +58,8 @@ docker run -dit --name titan0 --restart always -v ~/.titanedge0:/root/.titanedge
 sleep 10
 
 # Thực hiện hành động cho từng container
-docker exec -it titan0 /bin/bash -c 'titan-edge bind --hash=6E0A51D9-CE34-4D21-9445-C6D1D24B8523 https://api-test1.container1.titannet.io/api/v2/device/binding'
-docker exec -it titan1 /bin/bash -c 'titan-edge bind --hash=6E0A51D9-CE34-4D21-9445-C6D1D24B8523 https://api-test1.container1.titannet.io/api/v2/device/binding'
-docker exec -it titan2 /bin/bash -c 'titan-edge bind --hash=6E0A51D9-CE34-4D21-9445-C6D1D24B8523 https://api-test1.container1.titannet.io/api/v2/device/binding'
-docker exec -it titan3 /bin/bash -c 'titan-edge bind --hash=6E0A51D9-CE34-4D21-9445-C6D1D24B8523 https://api-test1.container1.titannet.io/api/v2/device/binding'
-docker exec -it titan4 /bin/bash -c 'titan-edge bind --hash=6E0A51D9-CE34-4D21-9445-C6D1D24B8523 https://api-test1.container1.titannet.io/api/v2/device/binding'
+docker exec -it titan0 /bin/bash -c 'titan-edge bind --hash=4A760FEF-C664-4624-B5B9-406FA9AEA1F6 https://api-test1.container1.titannet.io/api/v2/device/binding'
+docker exec -it titan1 /bin/bash -c 'titan-edge bind --hash=4A760FEF-C664-4624-B5B9-406FA9AEA1F6 https://api-test1.container1.titannet.io/api/v2/device/binding'
+docker exec -it titan2 /bin/bash -c 'titan-edge bind --hash=4A760FEF-C664-4624-B5B9-406FA9AEA1F6 https://api-test1.container1.titannet.io/api/v2/device/binding'
+docker exec -it titan3 /bin/bash -c 'titan-edge bind --hash=4A760FEF-C664-4624-B5B9-406FA9AEA1F6 https://api-test1.container1.titannet.io/api/v2/device/binding'
+docker exec -it titan4 /bin/bash -c 'titan-edge bind --hash=4A760FEF-C664-4624-B5B9-406FA9AEA1F6 https://api-test1.container1.titannet.io/api/v2/device/binding'
